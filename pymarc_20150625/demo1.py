@@ -1,3 +1,5 @@
+#*~*~*~*~*~*~*~  DRAFT ONLY   DRAFT ONLY   DRAFT ONLY   ~*~*~*~*~*~*~*
+#*~*~*~*~*~*~*~  DEMO Code will be updated closer to the pre-conference date of June 25th   ~*~*~*~*~*~*~*
 import pymarc
 from pymarc import Record, Field
 
@@ -31,7 +33,7 @@ for my_rec in my_marc_recs_in:
 	
 	# iterate through the field objects in the list
 	for my_650 in my_650s:
-		print my_650['a']
+#		print my_650['a']
 #		print my_650
 		pass
 		
@@ -43,7 +45,7 @@ for my_rec in my_marc_recs_in:
 	
 	##########################
 	# Get subfields out of the field using field.get_subfields() function
-	
+#	my_650_subs = my_650.get_subfields()
 	my_650_subs = my_650.get_subfields('a', 'x')
 #	print my_650_subs
 	
@@ -51,5 +53,46 @@ for my_rec in my_marc_recs_in:
 #		print my_650_sub
 		pass
 
+#	print 'Before: '+ str(my_650)
+
+#	my_650.delete_subfield('z')
 	
+#	my_650z_subs = my_650.get_subfields('z')
+#	print my_650
+#	for my_650z in my_650z_subs:
+#		my_650.delete_subfield('z')
+#		print my_650
+	
+#	my_650.add_subfield('2','local')
+	
+#	print 'After:  '+ str(my_650)
+	
+	my_new_700 = Field(tag='700', indicators=['1',' '])
+	print my_new_700
+	
+	print my_new_700.indicator1
+	my_new_700.indicator1 = '2'
+	print my_new_700.indicator1
+	print my_new_700
+	my_new_700.add_subfield('a', 'Melville, Herman,')
+	print my_new_700
+	my_new_700.add_subfield('d', '1819-1891.')
+	print my_new_700
+
 	print '----------------------'
+
+
+
+# PUTTING IT ALL TOGETHER
+# 
+# for my_record in my_marc_in:
+# 	rec_245s = my_record.get_fields(‘245’)
+# 	for rec_245 in rec_245s:
+# 		rec_245.add_subfield(‘h’, ‘[electronic resource]’)
+# 		rec_245a_subs = rec_245.get_subfields(‘a’)
+# 		for rec_245a in rec_245a_subs:
+# 			print rec_245a
+# 	my_record.remove_field(‘006’)
+# 	my_new_710 = Field(tag=‘710’, indicators=[‘1’, ‘ ’])
+# 	my_new_710.add_subfield(‘a’, ‘Frank, Heidi’)
+# 	my_record.add_field(my_new_710)
