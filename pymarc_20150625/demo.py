@@ -5,7 +5,7 @@ from copy import deepcopy
 ############################################
 # Read in a file of MARC records
 ############################################
-my_records_in = pymarc.MARCReader(file('my_marc_recs_in_100r.mrc'), to_unicode=True, force_utf8=True)
+my_records_in = pymarc.MARCReader(file('my_marc_recs_in.mrc'), to_unicode=True, force_utf8=True)
 
 ############################################
 # Write out a file of MARC records
